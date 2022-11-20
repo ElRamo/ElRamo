@@ -1,0 +1,3237 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>Elastic Compute Cloud (EC2) - Abdur's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/main.css">
+      
+        
+        <link rel="stylesheet" href="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/palette.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link rel="stylesheet" href="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/css.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script><script async="" src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/js"></script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elastic-compute-cloud-ec2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://arkalim.org/" title="Abdur's Notes" class="md-header__button md-logo" aria-label="Abdur's Notes" data-md-component="logo">
+      
+  <img src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Abdur's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Elastic Compute Cloud (EC2)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="none" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">Type to start searching</div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://notes.arkalim.org/" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://notes.arkalim.org/notes/Apps/" class="md-tabs__link md-tabs__link--active">
+        Notes
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://notes.arkalim.org/Scratch%20Pad/Scratch%20Pad/" class="md-tabs__link">
+        Scratch Pad
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 48px;">
+                <div class="md-sidebar__scrollwrap" style="height: 428px;">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://arkalim.org/" title="Abdur's Notes" class="md-nav__button md-logo" aria-label="Abdur's Notes" data-md-component="logo">
+      
+  <img src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/favicon.ico" alt="logo">
+
+    </a>
+    Abdur's Notes
+  </label>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked="checked">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Notes
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Apps/" class="md-nav__link">
+        Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Components/" class="md-nav__link">
+        Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Data%20Storage/" class="md-nav__link">
+        Data Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/DevOps/" class="md-nav__link">
+        DevOps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Helm%20Package%20Manager/" class="md-nav__link">
+        Helm Package Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Ingress/" class="md-nav__link">
+        Ingress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Intro/" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Kubectl/" class="md-nav__link">
+        Kubectl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Kubernetes%20Config%20File/" class="md-nav__link">
+        Kubernetes Config File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Local%20Cluster%20Setup/" class="md-nav__link">
+        Local Cluster Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/MongoDB%20%26%20Mongo%20Express%20Project/" class="md-nav__link">
+        MongoDB &amp; Mongo Express Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Namespaces/" class="md-nav__link">
+        Namespaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Networking/" class="md-nav__link">
+        Networking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Pre-Requisites/" class="md-nav__link">
+        Pre Requisites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Security/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Web%20Server/" class="md-nav__link">
+        Web Server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_22" type="checkbox" id="__nav_2_22" checked="checked">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_22">
+          AWS Solutions Architect Associate
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AWS Solutions Architect Associate" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_22">
+          <span class="md-nav__icon md-icon"></span>
+          AWS Solutions Architect Associate
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/API%20Gateway/" class="md-nav__link">
+        API Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Backup/" class="md-nav__link">
+        AWS Backup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Directory%20Services/" class="md-nav__link">
+        AWS Directory Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Organizations/" class="md-nav__link">
+        AWS Organizations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Shield/" class="md-nav__link">
+        AWS Shield
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Solutions%20Architect%20Associate%20%28SAA-C02%29/" class="md-nav__link">
+        AWS Solutions Architect Associate (SAA C02)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Amazon%20MQ/" class="md-nav__link">
+        Amazon MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Amazon%20WorkSpaces/" class="md-nav__link">
+        Amazon WorkSpaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AppSync/" class="md-nav__link">
+        AppSync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Athena/" class="md-nav__link">
+        Athena
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Aurora/" class="md-nav__link">
+        Aurora
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Auto%20Scaling%20Group%20%28ASG%29/" class="md-nav__link">
+        Auto Scaling Group (ASG)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Blue-Green%20Deployment/" class="md-nav__link">
+        Blue Green Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudFormation/" class="md-nav__link">
+        CloudFormation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudFront/" class="md-nav__link">
+        CloudFront
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudHSM/" class="md-nav__link">
+        CloudHSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudTrail/" class="md-nav__link">
+        CloudTrail
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudWatch/" class="md-nav__link">
+        CloudWatch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Cognito/" class="md-nav__link">
+        Cognito
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Continuous%20Integration%20Continuous%20Delivery%20%28CICD%29/" class="md-nav__link">
+        Continuous Integration Continuous Delivery (CICD)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Cost%20Effective%20Highly%20Available%20Monolithic%20Architecture/" class="md-nav__link">
+        Cost Effective Highly Available Monolithic Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CostExplorer/" class="md-nav__link">
+        CostExplorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/DDoS%20Protection/" class="md-nav__link">
+        DDoS Protection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/DataSync/" class="md-nav__link">
+        DataSync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Database%20Migration%20Service%20%28DMS%29/" class="md-nav__link">
+        Database Migration Service (DMS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Direct%20Connect%20%28DX%29/" class="md-nav__link">
+        Direct Connect (DX)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Disaster%20Recovery/" class="md-nav__link">
+        Disaster Recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/DynamoDB/" class="md-nav__link">
+        DynamoDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/ElastiCache/" class="md-nav__link">
+        ElastiCache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Beanstalk/" class="md-nav__link">
+        Elastic Beanstalk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Block%20Storage%20%28EBS%29/" class="md-nav__link">
+        Elastic Block Storage (EBS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Elastic Compute Cloud (EC2)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/elastic%20compute%20cloud%20(ec2)/" class="md-nav__link md-nav__link--active">
+        Elastic Compute Cloud (EC2)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#user-data" class="md-nav__link">
+    User Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-classes" class="md-nav__link">
+    Instance Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-groups" class="md-nav__link">
+    Security Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-roles-for-ec2-instances" class="md-nav__link">
+    IAM Roles for EC2 instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purchasing-options" class="md-nav__link">
+    Purchasing Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Purchasing Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-instances" class="md-nav__link">
+    On-demand Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-reserved-instances" class="md-nav__link">
+    Standard Reserved Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertible-reserved-instances" class="md-nav__link">
+    Convertible Reserved Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduled-reserved-instances" class="md-nav__link">
+    Scheduled Reserved Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-instances" class="md-nav__link">
+    Spot Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-hosts" class="md-nav__link">
+    Dedicated Hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-instances" class="md-nav__link">
+    Dedicated Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-capacity-reservations" class="md-nav__link">
+    On-Demand Capacity Reservations
+  </a>
+  
+</li>
+
+<a href="#savingplans" class="md-nav__link">
+    Saving Plans
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spot-instances_1" class="md-nav__link">
+    Spot Instances
+  </a>
+  
+    <nav class="md-nav" aria-label="Spot Instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spot-requests" class="md-nav__link">
+    Spot Requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-fleets" class="md-nav__link">
+    Spot Fleets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-ip" class="md-nav__link">
+    Elastic IP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#placement-groups-placement-strategies" class="md-nav__link">
+    Placement Groups (Placement Strategies)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-network-interface-eni" class="md-nav__link">
+    Elastic Network Interface (ENI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-states" class="md-nav__link">
+    Instance States
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-nitro" class="md-nav__link">
+    EC2 Nitro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vcpu-threads" class="md-nav__link">
+    vCPU &amp; Threads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    Monitoring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-machine-image-ami" class="md-nav__link">
+    Amazon Machine Image (AMI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-metadata" class="md-nav__link">
+    Instance Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-classic-classiclink" class="md-nav__link">
+    EC2 Classic &amp; ClassicLink
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#billing" class="md-nav__link">
+    Billing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-command" class="md-nav__link">
+    Run Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-tenancy" class="md-nav__link">
+    Instance Tenancy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+
+<li class="md-nav__item">
+  <a href="#instantconnect" class="md-nav__link">
+    Instant Connect
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Container%20Registry%20%28ECR%29/" class="md-nav__link">
+        Elastic Container Registry (ECR)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Container%20Service%20%28ECS%29/" class="md-nav__link">
+        Elastic Container Service (ECS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20File%20System%20%28EFS%29/" class="md-nav__link">
+        Elastic File System (EFS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Kubernetes%20Service%20%28EKS%29/" class="md-nav__link">
+        Elastic Kubernetes Service (EKS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Load%20Balancer%20%28ELB%29/" class="md-nav__link">
+        Elastic Load Balancer (ELB)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Map%20Reduce%20%28EMR%29/" class="md-nav__link">
+        Elastic Map Reduce (EMR)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/EventBridge/" class="md-nav__link">
+        EventBridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Extras/" class="md-nav__link">
+        Extras
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/FSx/" class="md-nav__link">
+        FSx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Firewall%20Manager/" class="md-nav__link">
+        Firewall Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Global%20Accelerator/" class="md-nav__link">
+        Global Accelerator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Glue/" class="md-nav__link">
+        Glue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/GuardDuty/" class="md-nav__link">
+        GuardDuty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/High%20Performance%20Computing%20%28HPC%29/" class="md-nav__link">
+        High Performance Computing (HPC)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Identity%20%26%20Access%20Management%20%28IAM%29/" class="md-nav__link">
+        Identity &amp; Access Management (IAM)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Identity%20Federation%20in%20AWS/" class="md-nav__link">
+        Identity Federation in AWS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Important%20Ports/" class="md-nav__link">
+        Important Ports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Inspector/" class="md-nav__link">
+        Inspector
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Instance%20Store/" class="md-nav__link">
+        Instance Store
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Intro%20to%20AWS/" class="md-nav__link">
+        Intro to AWS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Key%20Management%20Service%20%28KMS%29/" class="md-nav__link">
+        Key Management Service (KMS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Kinesis/" class="md-nav__link">
+        Kinesis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Lambda/" class="md-nav__link">
+        Lambda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Macie/" class="md-nav__link">
+        Macie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Neptune/" class="md-nav__link">
+        Neptune
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Networking%20Costs/" class="md-nav__link">
+        Networking Costs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/OpsWorks/" class="md-nav__link">
+        OpsWorks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/PrivateLink/" class="md-nav__link">
+        PrivateLink
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Reachability%20Analyzer/" class="md-nav__link">
+        Reachability Analyzer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Redshift/" class="md-nav__link">
+        Redshift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Relational%20Database%20Service%20%28RDS%29/" class="md-nav__link">
+        Relational Database Service (RDS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Resource%20Access%20Manager%20%28RAM%29/" class="md-nav__link">
+        Resource Access Manager (RAM)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Route%2053/" class="md-nav__link">
+        Route 53
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/SSM%20Parameter%20Store/" class="md-nav__link">
+        SSM Parameter Store
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Secrets%20Manager/" class="md-nav__link">
+        Secrets Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Security%20Token%20Service%20%28STS%29/" class="md-nav__link">
+        Security Token Service (STS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20Application%20Model%20%28SAM%29/" class="md-nav__link">
+        Serverless Application Model (SAM)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20Blogging%20Website/" class="md-nav__link">
+        Serverless Blogging Website
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20Premium%20Stock%20Video%20Website/" class="md-nav__link">
+        Serverless Premium Stock Video Website
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20ToDo%20List%20App/" class="md-nav__link">
+        Serverless ToDo List App
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Shared%20Responsibility%20Model/" class="md-nav__link">
+        Shared Responsibility Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Simple%20Notification%20Service%20%28SNS%29/" class="md-nav__link">
+        Simple Notification Service (SNS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Simple%20Queue%20Service%20%28SQS%29/" class="md-nav__link">
+        Simple Queue Service (SQS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Simple%20Storage%20Service%20%28S3%29/" class="md-nav__link">
+        Simple Storage Service (S3)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Single%20Sign-On%20%28SSO%29/" class="md-nav__link">
+        Single Sign On (SSO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Site-to-Site%20VPN/" class="md-nav__link">
+        Site to Site VPN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Snow%20Family/" class="md-nav__link">
+        Snow Family
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Storage%20Gateway/" class="md-nav__link">
+        Storage Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Traffic%20Mirroring/" class="md-nav__link">
+        Traffic Mirroring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Transfer%20Family/" class="md-nav__link">
+        Transfer Family
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Transit%20Gateway/" class="md-nav__link">
+        Transit Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Trusted%20Advisor/" class="md-nav__link">
+        Trusted Advisor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Virtual%20Private%20Cloud%20%28VPC%29/" class="md-nav__link">
+        Virtual Private Cloud (VPC)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Web%20Application%20Firewall%20%28WAF%29/" class="md-nav__link">
+        Web Application Firewall (WAF)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Well%20Architected%20Framework/" class="md-nav__link">
+        Well Architected Framework
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Workflows/" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/X-Ray/" class="md-nav__link">
+        X Ray
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_23" type="checkbox" id="__nav_2_23">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_23">
+          Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_23">
+          <span class="md-nav__icon md-icon"></span>
+          Programming
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Programming/Asynchronous%20Programming/" class="md-nav__link">
+        Asynchronous Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Programming/Programming/" class="md-nav__link">
+        Programming
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_24" type="checkbox" id="__nav_2_24">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_24">
+          Static Site Generators
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Static Site Generators" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_24">
+          <span class="md-nav__icon md-icon"></span>
+          Static Site Generators
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Gatsby/" class="md-nav__link">
+        Gatsby
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Note%20Sharing/" class="md-nav__link">
+        Note Sharing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Portfolio/" class="md-nav__link">
+        Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Static%20Site%20Generators/" class="md-nav__link">
+        Static Site Generators
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Scratch Pad
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Scratch Pad" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Scratch Pad
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/Scratch%20Pad/Scratch%20Pad/" class="md-nav__link">
+        Scratch Pad
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 48px;">
+                <div class="md-sidebar__scrollwrap" style="height: 428px;">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#user-data" class="md-nav__link">
+    User Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-classes" class="md-nav__link">
+    Instance Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-groups" class="md-nav__link">
+    Security Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-roles-for-ec2-instances" class="md-nav__link">
+    IAM Roles for EC2 instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purchasing-options" class="md-nav__link">
+    Purchasing Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Purchasing Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-instances" class="md-nav__link">
+    On-demand Instances
+  </a>
+  
+</li>
+
+
+          <li class="md-nav__item">
+  <a href="#standard-reserved-instances" class="md-nav__link">
+    Standard Reserved Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertible-reserved-instances" class="md-nav__link">
+    Convertible Reserved Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduled-reserved-instances" class="md-nav__link">
+    Scheduled Reserved Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-instances" class="md-nav__link">
+    Spot Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-hosts" class="md-nav__link">
+    Dedicated Hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-instances" class="md-nav__link">
+    Dedicated Instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-capacity-reservations" class="md-nav__link">
+    On-Demand Capacity Reservations
+  </a>
+
+</li>
+
+<li class="md-nav__item">
+  <a href="#savingplans" class="md-nav__link">
+    Saving Plans
+  </a>
+
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spot-instances_1" class="md-nav__link">
+    Spot Instances
+  </a>
+  
+    <nav class="md-nav" aria-label="Spot Instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spot-requests" class="md-nav__link">
+    Spot Requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-fleets" class="md-nav__link">
+    Spot Fleets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-ip" class="md-nav__link">
+    Elastic IP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#placement-groups-placement-strategies" class="md-nav__link">
+    Placement Groups (Placement Strategies)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-network-interface-eni" class="md-nav__link">
+    Elastic Network Interface (ENI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-states" class="md-nav__link">
+    Instance States
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-nitro" class="md-nav__link">
+    EC2 Nitro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vcpu-threads" class="md-nav__link">
+    vCPU &amp; Threads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    Monitoring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-machine-image-ami" class="md-nav__link">
+    Amazon Machine Image (AMI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-metadata" class="md-nav__link">
+    Instance Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-classic-classiclink" class="md-nav__link">
+    EC2 Classic &amp; ClassicLink
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#billing" class="md-nav__link">
+    Billing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-command" class="md-nav__link">
+    Run Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-tenancy" class="md-nav__link">
+    Instance Tenancy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+
+<li class="md-nav__item">
+  <a href="#instantconnect" class="md-nav__link">
+    Instant Connect
+  </a>
+  
+</li>
+
+<li class="md-nav__item">
+  <a href="#ssm" class="md-nav__link">
+    SSM Session Manager
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p><a href="../summary.html">AWS Solutions Architect Associate (SAA-C02)</a>  </p>
+<hr>
+<h1 id="elastic-compute-cloud-ec2">Elastic Compute Cloud (EC2)<a class="headerlink" href="#elastic-compute-cloud-ec2" title="Permanent link">¶</a></h1>
+<ul>
+<li>Regional Service</li>
+<li>EC2 (Elastic Compute Cloud) is an <strong>Infrastructure as a Service (IaaS)</strong></li>
+<li>Stopping &amp; Starting an instance may change its public IP but not its private IP</li>
+<li><strong>AWS Compute Optimizer</strong> recommends optimal AWS Compute resources for your workloads</li>
+<li>There is a vCPU-based On-Demand Instance soft limit per region</li>
+</ul>
+<h2 id="user-data">User Data<a class="headerlink" href="#user-data" title="Permanent link">¶</a></h2>
+<ul>
+<li>Some commands that run when the instance is launched for the first time (doesn't execute for subsequent runs)</li>
+<li>Used to automate <strong>dynamic</strong> boot tasks (that cannot be done using AMIs)<ul>
+<li>Installing updates</li>
+<li>Installing software</li>
+<li>Downloading common files from the internet</li>
+</ul>
+</li>
+<li>Runs with the <strong>root user privilege</strong></li>
+</ul>
+<h2 id="instance-classes">Instance Classes<a class="headerlink" href="#instance-classes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>General Purpose</strong><ul>
+<li>Great for a diversity of workloads such as <strong>web servers</strong> or <strong>code repositories</strong></li>
+<li>Balance between compute, memory &amp; networking</li>
+</ul>
+</li>
+<li><strong>Compute Optimized</strong><ul>
+<li>Great for compute intensive tasks<ul>
+<li>Batch Processing</li>
+<li>Media Transcoding</li>
+<li>HPC</li>
+<li>Gaming Servers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Memory Optimized</strong><ul>
+<li>Great for <strong>in-memory databases</strong> or <strong>distributed web caches</strong></li>
+</ul>
+</li>
+<li><strong>Storage Optimized</strong><ul>
+<li>Great for storage intensive tasks (accessing local databases)<ul>
+<li>OLTP systems</li>
+<li>Distributed File System (DFS)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="security-groups">Security Groups<a class="headerlink" href="#security-groups" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Only contain Allow rules</strong></li>
+<li>External firewall for EC2 instances (if a request is blocked by SG, instance will never know)</li>
+<li>Security groups rules can reference a resource by IP or Security Group</li>
+<li>Default SG<ul>
+<li>inbound traffic from the same SG is allowed</li>
+<li>all outbound traffic is allowed</li>
+</ul>
+</li>
+<li>New SG<ul>
+<li>all inbound traffic is blocked</li>
+<li>all outbound traffic is allowed</li>
+</ul>
+</li>
+<li>A security group can be attached to multiple instances and vice versa</li>
+<li>Bound to a VPC (and hence to a region)</li>
+<li>Recommended to maintain a separate security group for SSH access</li>
+<li>Blocked requests will give a <strong>Time Out</strong> error</li>
+</ul>
+<h2 id="iam-roles-for-ec2-instances">IAM Roles for EC2 instances<a class="headerlink" href="#iam-roles-for-ec2-instances" title="Permanent link">¶</a></h2>
+<ul>
+<li>Never enter AWS credentials into the EC2 instance, instead attach <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Identity%20&amp;%20Access%20Management%20(IAM)#roles">IAM Roles</a> to the instances</li>
+</ul>
+<h2 id="purchasing-options">Purchasing Options<a class="headerlink" href="#purchasing-options" title="Permanent link">¶</a></h2>
+<h4 id="on-demand-instances">On-demand Instances<a class="headerlink" href="#on-demand-instances" title="Permanent link">¶</a></h4>
+<ul>
+<li>Pay per use (no upfront payment)</li>
+<li>Highest cost</li>
+<li>No long-term commitment </li>
+<li>Recommended for short-term, uninterrupted and <strong>unpredictable</strong> workloads</li>
+</ul>
+<h4 id="standard-reserved-instances">Standard Reserved Instances<a class="headerlink" href="#standard-reserved-instances" title="Permanent link">¶</a></h4>
+<ul>
+<li>Reservation Period: 1 year or 3 years</li>
+<li>Recommended for steady-state applications (like database)</li>
+<li><strong>Sell unused instances</strong> on the Reserved Instance Marketplace</li>
+<li>Payment Options – No Upfront (+), Partial Upfront (++), All Upfront (+++)</li>
+<li>Reserved Instance’s Scope – Regional or Zonal (reserve capacity in an AZ)</li>
+</ul>
+<h4 id="convertible-reserved-instances">Convertible Reserved Instances<a class="headerlink" href="#convertible-reserved-instances" title="Permanent link">¶</a></h4>
+<ul>
+<li>Can change the instance type</li>
+<li>Lower discount</li>
+<li><strong>Cannot sell unused instances</strong> on the Reserved Instance Marketplace</li>
+</ul>
+<h4 id="scheduled-reserved-instances">Scheduled Reserved Instances<a class="headerlink" href="#scheduled-reserved-instances" title="Permanent link">¶</a></h4>
+<ul>
+<li>reserved for a time window (ex. everyday from 9AM to 5PM)</li>
+</ul>
+<h4 id="spot-instances">Spot Instances<a class="headerlink" href="#spot-instances" title="Permanent link">¶</a></h4>
+<ul>
+<li>Work on a bidding basis where you are willing to pay a specific max 
+hourly rate for the instance. Your instance can terminate if the spot 
+price increases.</li>
+<li><strong>Spot blocks</strong> are designed not to be interrupted</li>
+<li>The MOST cost-efficient instances in AWS</li>
+<li>Good for workloads that are resilient to failure<ul>
+<li>Distributed jobs (resilient if some nodes go down)</li>
+<li>Batch jobs</li>
+</ul>
+</li>
+</ul>
+<h4 id="dedicated-hosts">Dedicated Hosts<a class="headerlink" href="#dedicated-hosts" title="Permanent link">¶</a></h4>
+<ul>
+<li>Server hardware is allocated to a specific company (not shared with other companies)</li>
+<li><strong>3 year reservation</strong> period</li>
+<li>Billed per host</li>
+<li>Useful for software that have <strong>BYOL (Bring Your Own License)</strong> or for companies that have strong regulatory or compliance needs</li>
+</ul>
+<h4 id="dedicated-instances">Dedicated Instances<a class="headerlink" href="#dedicated-instances" title="Permanent link">¶</a></h4>
+<ul>
+<li>Dedicated hardware</li>
+<li>Billed per instance</li>
+<li>No control over instance placement</li>
+</ul>
+<h4 id="on-demand-capacity-reservations">On-Demand Capacity Reservations<a class="headerlink" href="#on-demand-capacity-reservations" title="Permanent link">¶</a></h4>
+<ul>
+<li>Ensure you have the available capacity in an AZ to launch EC2 instances when needed</li>
+<li>Can reserve for a recurring schedule (ex. everyday from 9AM to 5PM)</li>
+<li>No need for 1 or 3-year commitment (independent of billing discounts)</li>
+<li>Need to specify the following to create capacity reservation:
+        - AZ
+        - Number of instances
+        - Instance attributes</li>
+</ul>
+<h4 id="savingplans">Saving Plans<a class="headerlink" href="#savingplans" title="Permanent link">¶</a></h4>
+<ul>
+<li>Get a discount based on long-term usage (up to 72% - same as RIs)</li>
+<li>Commit to a certain type of usage ($10/hour for 1 or 3 years)</li>
+<li>Usage beyond EC2 Savings Plans is billed at the On-Demand price</li>
+<li>Locked to a specific instance family & AWS region (e.g., M5 in us-east-1)</li>
+<li>Flexible across:</li>
+  <br>- Instance Size (e.g., m5.xlarge, m5.2xlarge)
+  <br>-OS (e.g., Linux, Windows)
+  <br>-Tenancy (Host, Dedicated, Default)
+</ul>
+<details class="important">
+<summary>Reserved Capacity &amp; Instances Comparison</summary>
+<p><img alt="attachments/Pasted image 20220516114146.jpg" src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/Pasted%2520image%252020220516114146.jpg">  </p>
+</details>
+<h2 id="spot-instances_1">Spot Instances<a class="headerlink" href="#spot-instances_1" title="Permanent link">¶</a></h2>
+<h4 id="spot-requests">Spot Requests<a class="headerlink" href="#spot-requests" title="Permanent link">¶</a></h4>
+<ul>
+<li><strong>One-time</strong>: Request once opened, spins up the spot instances and the request closes.</li>
+<li><strong>Persistent</strong>: <ul>
+<li>Request will stay disabled while the spot instances are up and running. </li>
+<li>It becomes active after the spot instance is interrupted. </li>
+<li>If you stop the spot instance, the request will become active only after you start the spot instance. </li>
+</ul>
+</li>
+<li>You can only cancel spot instance requests that are open, active, or disabled.</li>
+<li>Cancelling a Spot Request does not terminate instances. You must 
+first cancel a Spot Request, and then terminate the associated Spot 
+Instances.</li>
+</ul>
+<h4 id="spot-fleets">Spot Fleets<a class="headerlink" href="#spot-fleets" title="Permanent link">¶</a></h4>
+<ul>
+<li>Combination of spot and on-demand instances (optional) that tries to <strong>optimize for cost or capacity</strong></li>
+<li><strong>Launch Templates must be used to have on-demand instances in the fleet</strong></li>
+<li>Can consist of instances of different classes</li>
+<li>Strategies to allocate Spot Instances:<ul>
+<li><strong>lowestPrice</strong> - from the pool with the lowest price (cost optimization, short workload)</li>
+<li><strong>diversified</strong> - distributed across all pools (great for availability, long workloads)</li>
+<li><strong>capacityOptimized</strong> - pool with the optimal capacity for the number of instances</li>
+</ul>
+</li>
+</ul>
+<h2 id="elastic-ip">Elastic IP<a class="headerlink" href="#elastic-ip" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Static Public IP</strong> that you own as long as you don't delete it</li>
+<li>Can be attached to an EC2 instance (even when it is stopped)</li>
+<li>Soft limit of 5 elastic IPs per account</li>
+<li>Doesn’t incur charges as long as the following conditions are met 
+(EIP behaving like any other public IP randomly assigned to an EC2 
+instance):<ul>
+<li>The Elastic IP is associated with an Amazon EC2 instance</li>
+<li>The instance associated with the Elastic IP is running</li>
+<li>The instance has only one Elastic IP attached to it</li>
+</ul>
+</li>
+<li>Overall, try to avoid using Elastic IP:<ul>
+<li>They often reflect poor architectural decisions</li>
+<li>Instead, use a random public IP and register a DNS name to it</li>
+<li>Or, as we’ll see later, use a Load Balancer and don’t use a public IP</li>
+</ul>
+</ul>
+<h2 id="placement-groups-placement-strategies">Placement Groups (Placement Strategies)<a class="headerlink" href="#placement-groups-placement-strategies" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Cluster Placement Group (optimize for network)</strong><ul>
+<li>All the instances are placed on the same hardware (same rack)</li>
+<li>Pros: Great network (10 Gbps bandwidth between instances)</li>
+<li>Cons: If the rack fails, all instances will fail at the same time</li>
+<li>Used in <strong>HPC</strong> (minimize inter-node latency &amp; maximize throughput)</li>
+<li>Image<ul>
+<li><img alt="attachments/Pasted image 20220505231518.jpg" src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/Pasted%2520image%252020220505231518.jpg">  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Spread Placement Group (maximize availability)</strong><ul>
+<li>Each instance is in a separate rack (physical hardware) inside an AZ</li>
+<li>Supports Multi AZ</li>
+<li>Up to 7 instances per AZ per placement group (ex. for 15 instances, need 3 AZ)</li>
+<li>Used for critical applications</li>
+<li>Image<ul>
+<li><img alt="attachments/Pasted image 20220505232110.jpg" src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/Pasted%2520image%252020220505232110.jpg">  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Partition Placement Group (balance of performance and availability)</strong><ul>
+<li>Instances in a partition share rack with each other</li>
+<li>If the rack goes down, the entire partition goes down</li>
+<li>Up to 7 partitions per AZ</li>
+<li>Used in <strong>big data</strong> applications (Hadoop, HDFS, HBase, Cassandra, Kafka)</li>
+<li>Image<ul>
+<li><img alt="attachments/Pasted image 20220505232434.jpg" src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/Pasted%2520image%252020220505232434.jpg">  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>If you receive a <strong>capacity error</strong> when launching an 
+instance in a placement group that already has running instances, stop 
+and start all of the instances in the placement group, and try the 
+launch again. Restarting the instances may migrate them to hardware that
+ has capacity for all the requested instances.</p>
+</blockquote>
+<h2 id="elastic-network-interface-eni">Elastic Network Interface (ENI)<a class="headerlink" href="#elastic-network-interface-eni" title="Permanent link">¶</a></h2>
+<ul>
+<li>ENI is a virtual network card that <strong>gives a private IP to an EC2 instance</strong></li>
+<li>A primary ENI is created and attached to the instance upon creation and will be deleted automatically upon instance termination.</li>
+<li>We can create additional ENIs and attach them to an EC2 instance to access it via multiple private IPs.</li>
+<li>We can detach &amp; attach ENIs across instances</li>
+<li><strong>ENIs are tied to the subnet</strong> (and hence to the AZ)</li>
+<li>The ENI can have the following attributes:<ul>
+<li>Primary private IPv4, one or more secondary IPv4</li>
+<li>One Elastic IP (IPv4) per private IPv4</li>
+<li>One Public IPv4</li>
+<li>One or more security groups</li>
+<li>A MAC address
+</li>
+</ul>
+</ul>
+<h2 id="instance-states">Instance States<a class="headerlink" href="#instance-states" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Stop</strong><ul>
+<li>EBS root volume is preserved</li>
+</ul>
+</li>
+<li><strong>Terminate</strong><ul>
+<li>EBS root volume gets destroyed</li>
+</ul>
+</li>
+<li><strong>Hibernate</strong><ul>
+<li>Hibernation saves the contents from the instance memory (RAM) to the EBS root volume</li>
+<li>EBS root volume is preserved</li>
+<li>The instance boots much faster as the OS is not stopped and restarted</li>
+<li>When you start your instance:<ul>
+<li>EBS root volume is restored to its previous state</li>
+<li>RAM contents are reloaded</li>
+<li>Processes that were previously running on the instance are resumed</li>
+<li>Previously attached data volumes are reattached and the instance retains its instance ID</li>
+</ul>
+</li>
+<li>Should be used for applications that take a long time to start</li>
+<li><strong>Not supported for Spot Instances</strong></li>
+<li>Max hibernation duration = <strong>60 days</strong></li>
+</ul>
+</li>
+<li><strong>Standby</strong><ul>
+<li>Instance remains attached to the <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Auto%20Scaling%20Group%20(ASG)">ASG</a> but is temporarily put out of service (the ASG doesn't replace this instance)</li>
+<li>Used to install updates or troubleshoot a running instance</li>
+</ul>
+</li>
+</ul>
+<h2 id="ec2-nitro">EC2 Nitro<a class="headerlink" href="#ec2-nitro" title="Permanent link">¶</a></h2>
+<ul>
+<li>Newer virtualization technology for EC2 instances</li>
+<li>Better networking options (enhanced networking, HPC, IPv6)</li>
+<li>Higher Speed EBS (64,000 EBS IOPS max on Nitro instances whereas 32,000 on non-Nitro)</li>
+<li>Better underlying security</li>
+</ul>
+<h2 id="vcpu-threads">vCPU &amp; Threads<a class="headerlink" href="#vcpu-threads" title="Permanent link">¶</a></h2>
+<ul>
+<li>vCPU is the total number of concurrent threads that can be run on an EC2 instance</li>
+<li>Usually 2 threads per CPU core (eg. 4 CPU cores ⇒ 8 vCPU)</li>
+</ul>
+<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">¶</a></h2>
+<p><a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Instance%20Store">Instance Store</a><br>
+<a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Block%20Storage%20(EBS)">Elastic Block Storage (EBS)</a><br>
+<a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20File%20System%20(EFS)">Elastic File System (EFS)</a>  </p>
+<h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">¶</a></h2>
+<p><a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudWatch#ec2-monitoring">CloudWatch ⮕ EC2 Monitoring</a>  </p>
+<h2 id="amazon-machine-image-ami">Amazon Machine Image (AMI)<a class="headerlink" href="#amazon-machine-image-ami" title="Permanent link">¶</a></h2>
+<ul>
+<li>AMIs are the image of the instance after installing all the necessary OS, software and configuring everything. </li>
+<li>It boots much faster because the whole thing is pre-packaged and doesn’t have to be installed separately for each instance.</li>
+<li>Good for static configurations</li>
+<li><strong>Bound to a region</strong> (can be copied across regions)</li>
+<li>AMI Types : <ul>
+<li>A Public AMI: AWS provided</li>
+<li>Your own AMI: you make and maintain them yourself</li>
+<li>An AWS Marketplace AMI: an AMI someone else made (and potentially sells)</li>
+</ul></li>
+<li>AMI Process : <ul>
+<li>Start an EC2 instance and customize it</li>
+<li>Stop the instance (for data integrity)</li>
+<li>Build an AMI – this will also create EBS snapshots</li>
+<li>Launch instances from other AMIs  </li>
+</ul></li>
+<li><strong>Sharing Process Encrypted via KMS</strong><ul>
+<li>Must modify the image attribute to add a Launch Permission</li>
+<li>Must share the KMS Keys used to encrypted the snapshot</li>
+<li>The IAM Role/User in the target account must have the permissions to DescribeKey, ReEncrypted, CreateGrant, Decrypt</li>
+<li>Target can create an EC2 with his own KMS key</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>When the new AMI is copied from region A into region B, it 
+automatically creates a snapshot in region B because AMIs are based on 
+the underlying snapshots.</p>
+</blockquote>
+<h2 id="instance-metadata">Instance Metadata<a class="headerlink" href="#instance-metadata" title="Permanent link">¶</a></h2>
+<ul>
+<li>Url to fetch metadata about the instance (http://169.254.169.254/latest/meta-data)</li>
+<li>This URL is internal to AWS and can only be hit from the instance</li>
+</ul>
+<h2 id="ec2-classic-classiclink">EC2 Classic &amp; ClassicLink<a class="headerlink" href="#ec2-classic-classiclink" title="Permanent link">¶</a></h2>
+<ul>
+<li>Instances run in single network shared with other customers (this is how AWS started)</li>
+<li><strong>ClassicLink</strong> allows you to link EC2-Classic instances to a VPC in your account</li>
+</ul>
+<h2 id="billing">Billing<a class="headerlink" href="#billing" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Reserved instances will be billed regardless of their state</strong> (billed for a reserved period)</li>
+<li><strong>On-demand instances in <code>stopping</code> state when preparing to hibernate will be billed</strong></li>
+<li>If an instance is running, it will be billed</li>
+<li>In all the other cases, an instance will not be billed</li>
+</ul>
+<h2 id="run-command">Run Command<a class="headerlink" href="#run-command" title="Permanent link">¶</a></h2>
+<ul>
+<li>Systems Manager <strong>Run Command</strong>&nbsp;lets you remotely and securely <strong>manage the configuration</strong> of your <strong>managed instances</strong>. A&nbsp;<em>managed instance</em>&nbsp;is any EC2 instance that has been configured for <strong>Systems Manager</strong>. </li>
+<li>Run Command enables you to <strong>automate common administrative tasks</strong> and perform ad-hoc configuration changes at scale. </li>
+<li>You can use Run Command from the <strong>AWS Console</strong>, the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDKs. Run Command is offered at no additional cost.</li>
+</ul>
+<h2 id="instance-tenancy">Instance Tenancy<a class="headerlink" href="#instance-tenancy" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Default</strong>: Instance runs on shared hardware</li>
+<li><strong>Dedicated</strong>: Instance runs on single-tenant hardware</li>
+<li><strong>Host</strong>: Instance runs on dedicated host</li>
+</ul>
+<blockquote>
+<ul>
+<li>Tenancy of an instance can only be changed from <strong>host to dedicated</strong> or <strong>dedicated to host</strong> after the instance has been launched.</li>
+<li>Dedicated instance tenancy takes precedence over Default instance tenancy</li>
+</ul>
+</blockquote>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<ul>
+<li>The following are a few reasons why an instance might immediately terminate:<ul>
+<li>You’ve reached your EBS volume limit.</li>
+<li>An EBS snapshot is corrupt.</li>
+<li>The root EBS volume is encrypted and you do not have permissions to access the KMS key for decryption.</li>
+<li>The instance store-backed AMI that you used to launch the instance is missing a required part.</li>
+</ul>
+<h2 id="instantconnect">Instant Connect<a class="headerlink" href="#instantconnect" title="Permanent link">¶</a></h2>
+<ul>
+<li>Connect to your EC2 instance within your browser</li>
+<li>No need to use your key file that was downloaded</li>
+<li>The “magic” is that a temporary key is uploaded onto EC2 by AWS</li>
+<li>Works only out-of-the-box with Amazon Linux 2</li>
+<li>Need to make sure the port 22 is still opened!</li>
+</ul>
+</li>
+</ul>
+<h2 id="ssm">SSM Session Manager<a class="headerlink" href="#ssm" title="Permanent link">¶</a></h2>
+<ul>
+<li>Allows you to start a secure shell on your EC2 and on-premises servers</li>
+<li>No SSH access, bastion hosts, or SSH keys needed</li>
+<li>No port 22 needed (better security)</li>
+<li>Supports Linux, macOS, and Windows</li>
+<li>Send session log data to S3 or CloudWatch Logs</li>
+</ul>
+<hr>
+<p><em>Last updated: 2022-06-03</em></p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" style="top: 64px;" tabindex="-1" hidden="">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Block%20Storage%20%28EBS%29/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Elastic Block Storage (EBS)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Elastic Block Storage (EBS)
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Container%20Registry%20%28ECR%29/" class="md-footer__link md-footer__link--next" aria-label="Next: Elastic Container Registry (ECR)" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Elastic Container Registry (ECR)
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2022 Abdur Rahman
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/abdurrahmankalim" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/c/AbdurRahmanKalim" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/abdur.rahman.kalim" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="Elastic%20Compute%20Cloud%20(EC2)%20-%20Abdur's%20Notes_files/bundle.js"></script>
+      
+    
+  
+</body></html>
