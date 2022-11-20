@@ -1,0 +1,3079 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>Simple Storage Service (S3) - Abdur's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/main.css">
+      
+        
+        <link rel="stylesheet" href="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/palette.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link rel="stylesheet" href="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/css.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script><script async="" src="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/js"></script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simple-storage-service-s3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://arkalim.org/" title="Abdur's Notes" class="md-header__button md-logo" aria-label="Abdur's Notes" data-md-component="logo">
+      
+  <img src="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Abdur's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Simple Storage Service (S3)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="none" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">Type to start searching</div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://notes.arkalim.org/" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://notes.arkalim.org/notes/Apps/" class="md-tabs__link md-tabs__link--active">
+        Notes
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://notes.arkalim.org/Scratch%20Pad/Scratch%20Pad/" class="md-tabs__link">
+        Scratch Pad
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 48px;">
+                <div class="md-sidebar__scrollwrap" style="height: 469px;">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://arkalim.org/" title="Abdur's Notes" class="md-nav__button md-logo" aria-label="Abdur's Notes" data-md-component="logo">
+      
+  <img src="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/favicon.ico" alt="logo">
+
+    </a>
+    Abdur's Notes
+  </label>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked="checked">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Notes
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Apps/" class="md-nav__link">
+        Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Components/" class="md-nav__link">
+        Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Data%20Storage/" class="md-nav__link">
+        Data Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/DevOps/" class="md-nav__link">
+        DevOps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Helm%20Package%20Manager/" class="md-nav__link">
+        Helm Package Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Ingress/" class="md-nav__link">
+        Ingress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Intro/" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Kubectl/" class="md-nav__link">
+        Kubectl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Kubernetes%20Config%20File/" class="md-nav__link">
+        Kubernetes Config File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Local%20Cluster%20Setup/" class="md-nav__link">
+        Local Cluster Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/MongoDB%20%26%20Mongo%20Express%20Project/" class="md-nav__link">
+        MongoDB &amp; Mongo Express Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Namespaces/" class="md-nav__link">
+        Namespaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Networking/" class="md-nav__link">
+        Networking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Pre-Requisites/" class="md-nav__link">
+        Pre Requisites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Security/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Web%20Server/" class="md-nav__link">
+        Web Server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_22" type="checkbox" id="__nav_2_22" checked="checked">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_22">
+          AWS Solutions Architect Associate
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AWS Solutions Architect Associate" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_22">
+          <span class="md-nav__icon md-icon"></span>
+          AWS Solutions Architect Associate
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/API%20Gateway/" class="md-nav__link">
+        API Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Backup/" class="md-nav__link">
+        AWS Backup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Directory%20Services/" class="md-nav__link">
+        AWS Directory Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Organizations/" class="md-nav__link">
+        AWS Organizations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Shield/" class="md-nav__link">
+        AWS Shield
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AWS%20Solutions%20Architect%20Associate%20%28SAA-C02%29/" class="md-nav__link">
+        AWS Solutions Architect Associate (SAA C02)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Amazon%20MQ/" class="md-nav__link">
+        Amazon MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Amazon%20WorkSpaces/" class="md-nav__link">
+        Amazon WorkSpaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/AppSync/" class="md-nav__link">
+        AppSync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Athena/" class="md-nav__link">
+        Athena
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Aurora/" class="md-nav__link">
+        Aurora
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Auto%20Scaling%20Group%20%28ASG%29/" class="md-nav__link">
+        Auto Scaling Group (ASG)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Blue-Green%20Deployment/" class="md-nav__link">
+        Blue Green Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudFormation/" class="md-nav__link">
+        CloudFormation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudFront/" class="md-nav__link">
+        CloudFront
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudHSM/" class="md-nav__link">
+        CloudHSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudTrail/" class="md-nav__link">
+        CloudTrail
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudWatch/" class="md-nav__link">
+        CloudWatch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Cognito/" class="md-nav__link">
+        Cognito
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Continuous%20Integration%20Continuous%20Delivery%20%28CICD%29/" class="md-nav__link">
+        Continuous Integration Continuous Delivery (CICD)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Cost%20Effective%20Highly%20Available%20Monolithic%20Architecture/" class="md-nav__link">
+        Cost Effective Highly Available Monolithic Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CostExplorer/" class="md-nav__link">
+        CostExplorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/DDoS%20Protection/" class="md-nav__link">
+        DDoS Protection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/DataSync/" class="md-nav__link">
+        DataSync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Database%20Migration%20Service%20%28DMS%29/" class="md-nav__link">
+        Database Migration Service (DMS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Direct%20Connect%20%28DX%29/" class="md-nav__link">
+        Direct Connect (DX)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Disaster%20Recovery/" class="md-nav__link">
+        Disaster Recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/DynamoDB/" class="md-nav__link">
+        DynamoDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/ElastiCache/" class="md-nav__link">
+        ElastiCache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Beanstalk/" class="md-nav__link">
+        Elastic Beanstalk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Block%20Storage%20%28EBS%29/" class="md-nav__link">
+        Elastic Block Storage (EBS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Compute%20Cloud%20%28EC2%29/" class="md-nav__link">
+        Elastic Compute Cloud (EC2)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Container%20Registry%20%28ECR%29/" class="md-nav__link">
+        Elastic Container Registry (ECR)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Container%20Service%20%28ECS%29/" class="md-nav__link">
+        Elastic Container Service (ECS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20File%20System%20%28EFS%29/" class="md-nav__link">
+        Elastic File System (EFS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Kubernetes%20Service%20%28EKS%29/" class="md-nav__link">
+        Elastic Kubernetes Service (EKS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Load%20Balancer%20%28ELB%29/" class="md-nav__link">
+        Elastic Load Balancer (ELB)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Elastic%20Map%20Reduce%20%28EMR%29/" class="md-nav__link">
+        Elastic Map Reduce (EMR)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/EventBridge/" class="md-nav__link">
+        EventBridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Extras/" class="md-nav__link">
+        Extras
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/FSx/" class="md-nav__link">
+        FSx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Firewall%20Manager/" class="md-nav__link">
+        Firewall Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Global%20Accelerator/" class="md-nav__link">
+        Global Accelerator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Glue/" class="md-nav__link">
+        Glue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/GuardDuty/" class="md-nav__link">
+        GuardDuty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/High%20Performance%20Computing%20%28HPC%29/" class="md-nav__link">
+        High Performance Computing (HPC)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Identity%20%26%20Access%20Management%20%28IAM%29/" class="md-nav__link">
+        Identity &amp; Access Management (IAM)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Identity%20Federation%20in%20AWS/" class="md-nav__link">
+        Identity Federation in AWS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Important%20Ports/" class="md-nav__link">
+        Important Ports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Inspector/" class="md-nav__link">
+        Inspector
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Instance%20Store/" class="md-nav__link">
+        Instance Store
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Intro%20to%20AWS/" class="md-nav__link">
+        Intro to AWS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Key%20Management%20Service%20%28KMS%29/" class="md-nav__link">
+        Key Management Service (KMS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Kinesis/" class="md-nav__link">
+        Kinesis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Lambda/" class="md-nav__link">
+        Lambda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Macie/" class="md-nav__link">
+        Macie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Neptune/" class="md-nav__link">
+        Neptune
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Networking%20Costs/" class="md-nav__link">
+        Networking Costs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/OpsWorks/" class="md-nav__link">
+        OpsWorks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/PrivateLink/" class="md-nav__link">
+        PrivateLink
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Reachability%20Analyzer/" class="md-nav__link">
+        Reachability Analyzer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Redshift/" class="md-nav__link">
+        Redshift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Relational%20Database%20Service%20%28RDS%29/" class="md-nav__link">
+        Relational Database Service (RDS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Resource%20Access%20Manager%20%28RAM%29/" class="md-nav__link">
+        Resource Access Manager (RAM)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Route%2053/" class="md-nav__link">
+        Route 53
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/SSM%20Parameter%20Store/" class="md-nav__link">
+        SSM Parameter Store
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Secrets%20Manager/" class="md-nav__link">
+        Secrets Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Security%20Token%20Service%20%28STS%29/" class="md-nav__link">
+        Security Token Service (STS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20Application%20Model%20%28SAM%29/" class="md-nav__link">
+        Serverless Application Model (SAM)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20Blogging%20Website/" class="md-nav__link">
+        Serverless Blogging Website
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20Premium%20Stock%20Video%20Website/" class="md-nav__link">
+        Serverless Premium Stock Video Website
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Serverless%20ToDo%20List%20App/" class="md-nav__link">
+        Serverless ToDo List App
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Shared%20Responsibility%20Model/" class="md-nav__link">
+        Shared Responsibility Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Simple%20Notification%20Service%20%28SNS%29/" class="md-nav__link">
+        Simple Notification Service (SNS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Simple%20Queue%20Service%20%28SQS%29/" class="md-nav__link">
+        Simple Queue Service (SQS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Simple Storage Service (S3)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/simple%20storage%20service%20(s3)/" class="md-nav__link md-nav__link--active">
+        Simple Storage Service (S3)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-versioning" class="md-nav__link">
+    Bucket Versioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    Encryption
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-management" class="md-nav__link">
+    Access Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-static-websites" class="md-nav__link">
+    S3 Static Websites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mfa-delete" class="md-nav__link">
+    MFA Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-access-logging" class="md-nav__link">
+    Server Access Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    Replication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-signed-url" class="md-nav__link">
+    Pre-signed URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-classes" class="md-nav__link">
+    Storage Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moving-between-storage-classes" class="md-nav__link">
+    Moving between Storage Classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-rules" class="md-nav__link">
+    Lifecycle Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-analytics" class="md-nav__link">
+    S3 Analytics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    Performance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-select" class="md-nav__link">
+    S3 Select & Glacier Select
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-transfer-costs" class="md-nav__link">
+    Data Transfer Costs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-notification-events" class="md-nav__link">
+    S3 Notification Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requester-pays-buckets" class="md-nav__link">
+    Requester Pays Buckets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-lock" class="md-nav__link">
+    Object Lock
+  </a>
+  
+    <nav class="md-nav" aria-label="Object Lock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glacier-vault-lock" class="md-nav__link">
+    Glacier Vault Lock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Single%20Sign-On%20%28SSO%29/" class="md-nav__link">
+        Single Sign On (SSO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Site-to-Site%20VPN/" class="md-nav__link">
+        Site to Site VPN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Snow%20Family/" class="md-nav__link">
+        Snow Family
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Storage%20Gateway/" class="md-nav__link">
+        Storage Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Traffic%20Mirroring/" class="md-nav__link">
+        Traffic Mirroring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Transfer%20Family/" class="md-nav__link">
+        Transfer Family
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Transit%20Gateway/" class="md-nav__link">
+        Transit Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Trusted%20Advisor/" class="md-nav__link">
+        Trusted Advisor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Virtual%20Private%20Cloud%20%28VPC%29/" class="md-nav__link">
+        Virtual Private Cloud (VPC)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Web%20Application%20Firewall%20%28WAF%29/" class="md-nav__link">
+        Web Application Firewall (WAF)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Well%20Architected%20Framework/" class="md-nav__link">
+        Well Architected Framework
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Workflows/" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/X-Ray/" class="md-nav__link">
+        X Ray
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_23" type="checkbox" id="__nav_2_23">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_23">
+          Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_23">
+          <span class="md-nav__icon md-icon"></span>
+          Programming
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Programming/Asynchronous%20Programming/" class="md-nav__link">
+        Asynchronous Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Programming/Programming/" class="md-nav__link">
+        Programming
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_24" type="checkbox" id="__nav_2_24">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_24">
+          Static Site Generators
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Static Site Generators" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_24">
+          <span class="md-nav__icon md-icon"></span>
+          Static Site Generators
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Gatsby/" class="md-nav__link">
+        Gatsby
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Note%20Sharing/" class="md-nav__link">
+        Note Sharing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Portfolio/" class="md-nav__link">
+        Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/notes/Static%20Site%20Generators/Static%20Site%20Generators/" class="md-nav__link">
+        Static Site Generators
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3">
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Scratch Pad
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Scratch Pad" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Scratch Pad
+        </label>
+        <ul class="md-nav__list">
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notes.arkalim.org/Scratch%20Pad/Scratch%20Pad/" class="md-nav__link">
+        Scratch Pad
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 48px;">
+                <div class="md-sidebar__scrollwrap" style="height: 469px;">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-versioning" class="md-nav__link">
+    Bucket Versioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    Encryption
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-management" class="md-nav__link">
+    Access Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-static-websites" class="md-nav__link">
+    S3 Static Websites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mfa-delete" class="md-nav__link">
+    MFA Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-access-logging" class="md-nav__link">
+    Server Access Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    Replication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-signed-url" class="md-nav__link">
+    Pre-signed URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-classes" class="md-nav__link">
+    Storage Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moving-between-storage-classes" class="md-nav__link">
+    Moving between Storage Classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-rules" class="md-nav__link">
+    Lifecycle Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-analytics" class="md-nav__link">
+    S3 Analytics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    Performance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-select" class="md-nav__link">
+    S3 Select & Glacier Select
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-transfer-costs" class="md-nav__link">
+    Data Transfer Costs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-notification-events" class="md-nav__link">
+    S3 Notification Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requester-pays-buckets" class="md-nav__link">
+    Requester Pays Buckets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-lock" class="md-nav__link">
+    Object Lock
+  </a>
+  
+    <nav class="md-nav" aria-label="Object Lock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glacier-vault-lock" class="md-nav__link">
+    Glacier Vault Lock
+  </a>
+  
+</li>
+       
+      </ul>
+
+    </nav>
+  
+</li>
+      
+    </ul>
+    <li class="md-nav__item">
+  <a href="#batch" class="md-nav__link">
+    S3 Batch Operations
+  </a>
+  
+</li> 
+ 
+</ul>
+    <li class="md-nav__item">
+  <a href="#cors" class="md-nav__link">
+    S3 CORS
+  </a>
+  
+</li> 
+<li class="md-nav__item">
+  <a href="#accesspoint" class="md-nav__link">
+    Access points
+  </a>
+  
+</li>
+<li class="md-nav__item">
+  <a href="#objectlambda" class="md-nav__link">
+    S3 Object Lambda
+  </a>
+  
+</li>  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p><a href="../summary.html">AWS Solutions Architect Associate (SAA-C02)</a>  </p>
+<hr>
+<h1 id="simple-storage-service-s3">Simple Storage Service (S3)<a class="headerlink" href="#simple-storage-service-s3" title="Permanent link">¶</a></h1>
+<h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">¶</a></h2>
+<ul>
+<li>Global Service</li>
+<li>Object store (key-value pairs)</li>
+<li>Buckets must have a globally unique name</li>
+<li><strong>Buckets are defined at the regional level</strong></li>
+<li>Objects have a key (full path to the object):
+    <code>s3://my_bucket/my_folder/another_folder/my_file.txt</code></li>
+<li>The key is composed of bucket + <em>prefix</em> + <strong>object name</strong>
+    s3://my_bucket <em>/my_folder/another_folder/</em> <strong>my_file.txt</strong></li>
+<li>There’s no concept of directories within buckets (just keys with very long names that contain slashes)</li>
+<li><strong>Max Object Size: 5TB</strong></li>
+<li>Durability: 99.999999999% (total 11 9's)</li>
+<li><strong>SYNC</strong> command can be used to <strong>copy data between buckets</strong>, possibly in <strong>different regions</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>S3 delivers <strong>strong read-after-write consistency</strong> (if an object is overwritten and immediately read, S3 always returns the latest version of the object)</li>
+<li>S3 is strongly consistent for all GET, PUT and LIST operations</li>
+</ul>
+</blockquote>
+<h2 id="bucket-versioning">Bucket Versioning<a class="headerlink" href="#bucket-versioning" title="Permanent link">¶</a></h2>
+<ul>
+<li>Enabled at the bucket level</li>
+<li>Protects against unintended deletes</li>
+<li>Ability to restore to a previous version</li>
+<li>Any file that is not versioned prior to enabling versioning will have version “null”</li>
+<li>Suspending versioning does not delete the previous versions, just disables it for the future</li>
+<li>To restore a deleted object, delete it's "delete market"</li>
+</ul>
+<blockquote>
+<ul>
+<li>Versioning can only be suspended once it has been enabled.</li>
+<li>Once you version-enable a bucket, it can never return to an unversioned state.</li>
+</ul>
+</blockquote>
+<h2 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">¶</a></h2>
+<ul>
+<li>Can be enabled at the bucket level or at the object level</li>
+<li><strong>Server Side Encryption (SSE)</strong><ul>
+<li><strong>SSE-S3</strong><ul>
+<li>Keys managed by S3</li>
+<li>AES-256 encryption</li>
+<li>HTTP or HTTPS can be used</li>
+<li>Must set header: <code>"x-amz-server-side-encryption": "AES256"</code></li>
+</ul>
+</li>
+<li><strong>SSE-KMS</strong><ul>
+<li>Keys managed by KMS</li>
+<li>HTTP or HTTPS can be used</li>
+<li>KMS provides control over who has access to what keys as well as audit trails</li>
+<li>Must set header: <code>"x-amz-server-side-encryption": "aws:kms"</code></li>
+<li>If you use SSE-KMS, you may be impacted by the <strong>KMS limits</strong>. In a very high troughput case, you migh experience <strong>latency</strong></li>
+<li><strong>S3 Replication Encryption Considerations with KMS</strong><ul>
+<li>An IAM Role with kms:Decrypt for the source KMS Key and kms:Encrypt for the target KMS Key</li>
+<li>You can use multi-region AWS KMS Keys, but they are currently treated as independent keys by Amazon S3 (the object will still be decrypted and then encrypted)</li>
+</ul></li>
+</ul>
+</li>
+<li><strong>SSE-C</strong><ul>
+<li>Keys managed by the client</li>
+<li>Client sends the key in HTTPS headers for encryption/decryption (S3 discards the key after the operation)</li>
+<li><strong>HTTPS must be used</strong> as key (secret) is being transferred</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Client Side Encryption</strong><ul>
+<li>Keys managed by the client</li>
+<li>Client encrypts the object before sending it to S3 and decrypts it after retrieving it from S3</li>
+</ul>
+</li>
+</ul>
+<details class="info">
+<summary>Enforcing Encryption </summary>
+<ul>
+<li><strong>Default encryption</strong>: encrypt the files using the default encryption (specify the encryption for the file while uploading to override the default)
+ Bucket policy can be used to force a specific type of encryption on the objects uploaded to S3 </li>
+ <li><strong>Make sure all objects uploaded to S3 bucket are encrypted</strong></li>
+ <li>Configure the bucket policy to deny if the Putobject does not have an x-amz-server-side-encryption header set</li>
+</ul>
+</details>
+<h2 id="access-management">Access Management<a class="headerlink" href="#access-management" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>User based security</strong><ul>
+<li>IAM policies define which API calls should be allowed for a specific user <strong>(same account)</strong></li>
+<li>Preferred over bucket policy for <strong>fine-grained access control</strong></li>
+</ul>
+</li>
+<li><strong>Resource based security (Bucket Policy)</strong><ul>
+<li>Policies can be attached to <strong>users, groups, or Amazon S3 buckets,</strong> enabling centralized management of permissions</li>
+<li>Grant public access to the bucket</li>
+<li>Force objects to be encrypted at upload</li>
+<li>Cross-account access</li>
+<li>Object Access Control List (ACL) - applies to the objects while uploading</li>
+<li>Bucket Access Control List (ACL) - access policy that applies to the bucket</li>
+<li><strong>With ACLs, you can only grant other AWS accounts (not specific users) access to your Amazon S3 resources</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>By default, an S3 object is owned by the account that uploaded it 
+even if the bucket is owned by another account. To get full access to 
+the object, the object owner must explicitly grant the bucket owner 
+access. As a bucket owner, you can create a bucket policy to require 
+external users to grant&nbsp;<code>bucket-owner-full-control</code>&nbsp;when uploading objects so the bucket owner can have full access to the objects.</p>
+</blockquote>
+<h2 id="s3-static-websites">S3 Static Websites<a class="headerlink" href="#s3-static-websites" title="Permanent link">¶</a></h2>
+<ul>
+<li>Host static websites (may contain <strong>client-side scripts</strong>) and have them accessible on the public internet over <strong>HTTP only</strong> (for HTTPS, use <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudFront">CloudFront</a> with S3 bucket as the origin)</li>
+<li>The website URL will be either of the following:<ul>
+<li><code>&lt;bucket-name&gt;.s3-website-&lt;region&gt;.amazonaws.com</code></li>
+<li><code>&lt;bucket-name&gt;.s3-website.&lt;region&gt;.amazonaws.com</code></li>
+</ul>
+</li>
+<li>If you get a <code>403 (Forbidden)</code> error, make sure the bucket policy allows public reads</li>
+<li>For cross-origin access to the S3 bucket, we need to enable <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Concepts#cross-origin-resource-sharing-cors">CORS</a> on the bucket<ul>
+<li><img alt="attachments/Pasted image 20220507175558.jpg" src="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/Pasted%2520image%252020220507175558.jpg">  </li>
+</ul>
+</li>
+<li>To host an S3 static website on a custom domain using Route 53, the bucket name should be the same as your domain or subdomain 
+  Ex. for subdomain <code>portal.tutorialsdojo.com</code>, the name of the bucket must be <code>portal.tutorialsdojo.com</code></li>
+</ul>
+<h2 id="mfa-delete">MFA Delete<a class="headerlink" href="#mfa-delete" title="Permanent link">¶</a></h2>
+<ul>
+<li>MFA required to<ul>
+<li>permanently delete an object version</li>
+<li>suspend versioning on the bucket</li>
+</ul>
+</li>
+<li><strong>Bucket Versioning must be enabled</strong></li>
+<li>Can only be enabled or disabled by the root user</li>
+</ul>
+<h2 id="server-access-logging">Server Access Logging<a class="headerlink" href="#server-access-logging" title="Permanent link">¶</a></h2>
+<ul>
+<li>Most detailed way of logging access to S3 buckets (better than <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudTrail">CloudTrail</a>)</li>
+<li>Does not support <strong>Data Events</strong> &amp; <strong>Log File Validation</strong> (use <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudTrail">CloudTrail</a> for that)</li>
+<li>Store S3 access logs into another bucket</li>
+<li>Logging bucket should not be the same as monitored bucket (logging loop)</li>
+</ul>
+<h2 id="replication">Replication<a class="headerlink" href="#replication" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Asynchronous replication</strong></li>
+<li>Objects are replicated with the <strong>same version ID</strong></li>
+<li>Supports <strong>cross-region</strong> and <strong>cross-account</strong> replication</li>
+<li><strong>Versioning must be enabled for source and destination buckets</strong></li>
+<li>For DELETE operations:<ul>
+<li>Replicate delete markers from source to target (optional)</li>
+<li>Permanent deletes are not replicated</li>
+</ul>
+</li>
+<li>There is <strong>no chaining of replication</strong>. So, if bucket 1
+ has replication into bucket 2, which has replication into bucket 3. 
+Then objects created in bucket 1 are not replicated to bucket 3.</li>
+<li><strong>Cross-Region Replication (CRR)</strong> – compliance, lower latency access, replication across accounts</li>
+<li><strong>Same-Region Replication (SRR)</strong> – log aggregation, live replication between production and test</li>
+accounts
+</ul>
+<h2 id="pre-signed-url">Pre-signed URL<a class="headerlink" href="#pre-signed-url" title="Permanent link">¶</a></h2>
+<ul>
+<li>Pre-signed URLs for S3 have temporary access token as query string 
+parameters which allow anyone with the URL to temporarily access the 
+resource before the URL expires (default 1h)</li>
+<li>Pre-signed URLs inherit the permission of the user who generated it</li>
+<li>Uses:<ul>
+<li>Allow only logged-in users to download a premium video</li>
+<li>Allow users to upload files to a precise location in the bucket</li>
+</ul>
+</li>
+</ul>
+<h2 id="storage-classes">Storage Classes<a class="headerlink" href="#storage-classes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Data can be transitioned between storage classes manually or automatically using lifecycle rules</li>
+<li>Data can be put directly into any storage class</li>
+<li><strong>Standard</strong><ul>
+<li><strong>99.99% availability</strong></li>
+<li>Most expensive</li>
+<li>Instant retrieval</li>
+<li>No cost on retrieval (only storage cost)</li>
+<li>For frequently accessed data</li>
+</ul>
+</li>
+<li><strong>Infrequent Access</strong><ul>
+<li>For data that is infrequently accessed, but requires rapid access when needed</li>
+<li>Lower storage cost than Standard but <strong>cost on retrieval</strong></li>
+<li>Can <strong>move data into IA from Standard only after 30 days</strong></li>
+<li>Two types:<ul>
+<li><strong>Standard IA</strong><ul>
+<li><strong>99.9% Availability</strong></li>
+</ul>
+</li>
+<li><strong>One-Zone IA</strong><ul>
+<li><strong>99.5% Availability</strong></li>
+<li>Data is lost if AZ fails</li>
+<li>Storage for infrequently accessed data that can be easily recreated</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Glacier</strong><ul>
+<li>For data archival</li>
+<li>Cost for storage and retrieval</li>
+<li><strong>Can move data into Glacier from Standard anytime</strong></li>
+<li>Objects cannot be directly accessed, they first need to be restored 
+which could take some time (depending on the tier) to fetch the object.</li>
+<li><strong>Default encryption for data at rest and in-transit</strong></li>
+<li>Three types:<ul>
+<li><strong>Glacier Instant Retrieval</strong><ul>
+<li><strong>99.9% availability</strong></li>
+<li>Millisecond retrieval</li>
+<li>Minimum storage duration of <strong>90 days</strong></li>
+<li>Great for data accessed once a quarter</li>
+</ul>
+</li>
+<li><strong>Glacier Flexible Retrieval</strong><ul>
+<li><strong>99.99% availability</strong></li>
+<li>3 retrieval flexibility (decreasing order of cost):<ul>
+<li>Expedited (1 to 5 minutes)<ul>
+<li>Can <strong>provision retrieval capacity</strong> for reliability</li>
+<li>Without provisioned capacity expedited retrievals might be rejected in situations of high demand</li>
+</ul>
+</li>
+<li>Standard (3 to 5 hours)</li>
+<li>Bulk (5 to 12 hours)</li>
+</ul>
+</li>
+<li>Minimum storage duration of <strong>90 days</strong></li>
+</ul>
+</li>
+<li><strong>Glacier Deep Archive</strong><ul>
+<li><strong>99.99% availability</strong></li>
+<li>2 flexible retrieval:<ul>
+<li>Standard (12 hours)</li>
+<li>Bulk (48 hours)</li>
+</ul>
+</li>
+<li>Minimum storage duration of <strong>180 days</strong></li>
+<li>Lowest cost</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Intelligent Tiering</strong><ul>
+<li><strong>99.9% availability</strong></li>
+<li>Moves objects automatically between Access Tiers based on usage</li>
+<li>Small monthly monitoring and auto-tiering fee</li>
+<li><strong>No retrieval charges</strong></li>
+</ul>
+</li>
+<li>
+<h4 id="moving-between-storage-classes">Moving between Storage Classes<a class="headerlink" href="#moving-between-storage-classes" title="Permanent link">¶</a></h4>
+<ul>
+<li>In the diagram below, transition can only happen in the downward direction</li>
+<li><img alt="attachments/Pasted image 20220514201314.jpg" src="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/Pasted%2520image%252020220514201314.jpg">  </li>
+</ul>
+</li>
+</ul>
+<h2 id="lifecycle-rules">Lifecycle Rules<a class="headerlink" href="#lifecycle-rules" title="Permanent link">¶</a></h2>
+<ul>
+<li>Used to automate transition or expiration actions on S3 objects</li>
+<li><strong>Transition Action</strong> (transitioned to another storage class)</li>
+<li><strong>Expiration Action</strong> (delete objects after some time)<ul>
+<li>delete a version of an object</li>
+<li>delete incomplete multi-part uploads</li>
+</ul>
+</li>
+<li>Lifecycle Rules can be created for a prefix (ex <code>s3://mybucket/mp3/*</code>) or objects tags (ex Department: Finance)</li>
+</ul>
+<blockquote>
+<ul>
+<li>When you apply a retention period to an object version explicitly, you specify a&nbsp;<code>Retain Until Date</code>&nbsp;for the object version</li>
+<li>When you use bucket default settings, you don't specify a <code>Retain Until Date</code>. Instead, you specify a duration, for which every object version placed in the bucket should be protected.</li>
+<li>Different versions of a single object can have different retention modes and periods</li>
+</ul>
+</blockquote>
+<h2 id="s3-analytics">S3 Analytics<a class="headerlink" href="#s3-analytics" title="Permanent link">¶</a></h2>
+<ul>
+<li>Provides analytics to determine when to transition data into different storage classes</li>
+<li><strong>Does not work for ONEZONE_IA &amp; GLACIER</strong></li>
+</ul>
+<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">¶</a></h2>
+<ul>
+<li>3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix</li>
+<li>Recommended to spread data across prefixes for maximum performance</li>
+<li>SSE-KMS may create bottleneck in S3 performance</li>
+<li>Performance Optimizations<ul>
+<li><strong>Multi-part Upload</strong><ul>
+<li>parallelizes upload</li>
+<li><strong>recommended for files &gt; 100MB</strong></li>
+<li><strong>must use for files &gt; 5GB</strong></li>
+</ul>
+</li>
+<li><strong>Byte-range fetches</strong><ul>
+<li>Parallelize download requests by fetching specific byte ranges in each request</li>
+<li>Better resilience in case of failures since we only need to refetch the failed byte range and not the whole file</li>
+</ul>
+</li>
+<li><strong>S3 Transfer Acceleration</strong><ul>
+<li>A way to replicate objects (to another bucket even cross-region) that existed before a replication configuration was in place</li>
+<li>Speed up <strong>upload and download</strong> for <strong>large objects (&gt;1GB)</strong> for <strong>global users</strong> </li>
+<li>Data is ingested at the nearest edge location and is transferred over AWS private network (uses <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudFront">CloudFront</a> internally)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="s3-select">S3 Select & Glacier Select<a class="headerlink" href="#s3-select" title="Permanent link">¶</a></h2>
+<ul>
+<li>Select a subset of data from S3 using <strong>SQL queries</strong> (<strong>server-side filtering</strong>)</li>
+<li>Less network cost</li>
+<li>Less CPU cost on the client-side</li>
+</ul>
+<h2 id="data-transfer-costs">Data Transfer Costs<a class="headerlink" href="#data-transfer-costs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Uploads to S3 are free</li>
+<li>Downloads from S3 are paid</li>
+<li>Using S3 Transfer Acceleration, you pay only for transfers that are accelerated</li>
+<li>Since buckets are defined within a region, <strong>data transfer within a region is free</strong></li>
+</ul>
+<h2 id="s3-notification-events">S3 Notification Events<a class="headerlink" href="#s3-notification-events" title="Permanent link">¶</a></h2>
+<ul>
+<li>Optional</li>
+<li>Generates events for operations performed on the bucket or objects</li>
+<li>Object name filtering using prefix and suffix matching</li>
+<li>Targets<ul>
+<li>SNS topics</li>
+<li><strong>SQS Standard</strong> queues (not FIFO queues)</li>
+<li>Lambda functions</li>
+</ul>
+</li>
+<li><ul>Event notification with <strong>Amazon EventBridge</strong>
+<li>Advanced filtering options with JSON rules (metadata, object size, name...)</li>
+<li>Multiple Destinations – ex Step Functions, Kinesis Streams / Firehose…</li>
+<li>EventBridge Capabilities – Archive, Replay Events, Reliable delivery </li>
+</ul></li>
+</ul>
+<h2 id="requester-pays-buckets">Requester Pays Buckets<a class="headerlink" href="#requester-pays-buckets" title="Permanent link">¶</a></h2>
+<ul>
+<li>Requester pays the cost of the request and the data downloaded from the bucket. The bucket owner only pays for the storage.</li>
+<li>Used to share large datasets with other AWS accounts</li>
+<li>The requester must be authenticated in AWS (cannot be anonymous)</li>
+</ul>
+<h2 id="object-lock">Object Lock<a class="headerlink" href="#object-lock" title="Permanent link">¶</a></h2>
+<ul>
+<li>WORM (Write Once Read Many) model</li>
+<li>Block an object version modification or deletion for a specified amount of time</li>
+<li>Modes:<ul>
+<li><strong>Governance mode</strong><ul>
+<li>Only users with special permissions can overwrite or delete the object version or alter its lock settings</li>
+</ul>
+</li>
+<li><strong>Compliance mode</strong><ul>
+<li>A protected object version cannot be overwritten or deleted by any user, including the root user</li>
+<li>The object's retention mode can’t be changed, and the retention period can’t be shortened</li>
+</ul>
+</li>
+<li><strong>Retention period</strong><ul>
+<li>protect the object for a fixed period, it can be extended</li>
+</ul></li>
+<li><strong>Legal Hold</strong><ul>
+<li>protect the object indefinitely, independent from retention period</li>
+<li>can be freely placed and removed using the s3:PutObjectLegalHold IAM permission</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+<h4 id="glacier-vault-lock">Glacier Vault Lock<a class="headerlink" href="#glacier-vault-lock" title="Permanent link">¶</a></h4>
+<ul>
+<li>WORM (Write Once Read Many) model for Glacier</li>
+<li>For compliance and data retention</li>
+</ul>
+<h4 id="batch">S3 Batch Operations<a class="headerlink" href="#batch" title="Permanent link">¶</a></h4>
+<ul>
+<ln>Perform bulk operations on existing S3 objects with a single request (ex: <strong>Encrypt un-encrypted objects</strong>)</ln>
+<ln>You can use S3 Inventory to get object list and use S3 Select to filter your objects</ln>
+</ul>
+<h4 id="cors">S3 CORS<a class="headerlink" href="#cors" title="Permanent link">¶</a></h4>
+<ul>
+<li><strong>CORS :</strong> Cross-Origin Ressource Sharing</li>
+<li><strong>Cross-Origin request :</strong> Client ask for object A in bucket-1, the object A includes object B that is in bucket-2</li>
+<li>If a client makes a cross-origin request on our S3 bucket, we need to enable
+the correct CORS headers</li>
+</ul>
+<h4 id="accesspoint">Access Points<a class="headerlink" href="#accesspoint" title="Permanent link">¶</a></h4>
+<ul>
+<li>Each Access Point gets its own DNS and policy to limit who can access it<ul>
+<li>A specific IAM user / group</li>
+<li>One policy per Access Point => Easier to manage than complex bucket policies</li>
+</ul></li>
+</ul>
+<h4 id="objectlambda">S3 Object Lambda<a class="headerlink" href="#objectlambda" title="Permanent link">¶</a></h4>
+<ul>
+<li>Use AWS Lambda Functions to change the object before it is retrieved by the caller application</li>
+<li>Only one S3 bucket is needed, on top of which we create S3 Access Point and S3 Object Lambda Access Points.</li>
+</ul>
+<hr>
+<p><em>Last updated: 2022-06-03</em></p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" style="top: 64px;" hidden="">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Simple%20Queue%20Service%20%28SQS%29/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simple Queue Service (SQS)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Simple Queue Service (SQS)
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/Single%20Sign-On%20%28SSO%29/" class="md-footer__link md-footer__link--next" aria-label="Next: Single Sign On (SSO)" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Single Sign On (SSO)
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2022 Abdur Rahman
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/abdurrahmankalim" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/c/AbdurRahmanKalim" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/abdur.rahman.kalim" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="Simple%20Storage%20Service%20(S3)%20-%20Abdur's%20Notes_files/bundle.js"></script>
+      
+    
+  
+</body></html>
