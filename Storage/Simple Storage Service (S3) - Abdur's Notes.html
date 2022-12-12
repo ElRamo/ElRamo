@@ -2710,6 +2710,7 @@ Then objects created in bucket 1 are not replicated to bucket 3.</li>
 <li><strong>Cross-Region Replication (CRR)</strong> – compliance, lower latency access, replication across accounts</li>
 <li><strong>Same-Region Replication (SRR)</strong> – log aggregation, live replication between production and test</li>
 accounts
+<li><strong>S3 Batch Replication: </strong>A way to replicate objects (to another bucket even cross-region) that existed before a replication configuration was in place</li>
 </ul>
 <h2 id="pre-signed-url">Pre-signed URL<a class="headerlink" href="#pre-signed-url" title="Permanent link">¶</a></h2>
 <ul>
@@ -2855,7 +2856,6 @@ which could take some time (depending on the tier) to fetch the object.</li>
 </ul>
 </li>
 <li><strong>S3 Transfer Acceleration</strong><ul>
-<li>A way to replicate objects (to another bucket even cross-region) that existed before a replication configuration was in place</li>
 <li>Speed up <strong>upload and download</strong> for <strong>large objects (&gt;1GB)</strong> for <strong>global users</strong> </li>
 <li>Data is ingested at the nearest edge location and is transferred over AWS private network (uses <a href="https://notes.arkalim.org/notes/aws%20solutions%20architect%20associate/CloudFront">CloudFront</a> internally)</li>
 </ul>
